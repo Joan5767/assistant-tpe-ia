@@ -3,3 +3,5 @@ crewai
 pydantic
 python-docx
 setuptools
+google-generativeai
+google-genai
