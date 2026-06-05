@@ -5,3 +5,5 @@ python-docx
 setuptools
 google-generativeai
 google-genai
+google-auth
+google-api-python-client
