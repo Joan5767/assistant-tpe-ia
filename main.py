@@ -1,5 +1,6 @@
 import os
 from crewai import Agent, Task, Crew
+import streamlit as st  # <-- AJOUTE CETTE LIGNE ICI
 
 # Configuration du modèle (N'oublie pas de remettre ta clé)
 os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
