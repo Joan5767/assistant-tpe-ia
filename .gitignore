@@ -1,0 +1,9 @@
+# Clés API et Secrets
+.streamlit/secrets.toml
+ta_cle_google.json
+
+# Fichiers de cache Python
+__pycache__/
+*/__pycache__/
+.venv/
+venv/

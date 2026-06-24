@@ -1,0 +1,53 @@
+---
+**FICHE DE QUALIFICATION DE CHANTIER - PRE-VISITE**
+
+**1. FICHE CLIENT**
+*   **Nom du Client:** Mme Wagner
+*   **Adresse Complète:** 20 rue du Cerf, Val de Moder
+
+**2. INFOS RDV**
+*   **Date et Heure:** ⚠️ À PLANIFIER
+
+**3. CONTEXTE IMMOBILIER**
+*   **Type de Bien:** Maison individuelle
+*   **Époque:** Années 1960
+*   **Spécificités:** Achat récent, Présence de plafonds hauts, Volonté de modernisation.
+
+**4. DESCRIPTIF DES TRAVAUX PAR LOT**
+
+*   **LOT Démolition / Préparation**
+    *   **Cuisine:** Dépose partielle de revêtement mural type "pose collée" (à identifier précisément sur place).
+
+*   **LOT Gros-Œuvre / Structure**
+    *   **Salle à manger:** Mise en place d'un IPN (implique probablement une ouverture de mur porteur, à confirmer et à dimensionner).
+
+*   **LOT Électricité**
+    *   Travaux de modernisation électrique générale.
+    *   Passage de gaines électriques (notamment intégré aux futurs faux-plafonds).
+
+*   **LOT Plâtrerie / Isolation**
+    *   **Plafonds:** Installation de faux-plafonds pour modernisation et intégration des gaines électriques.
+        *   *Attention:* Ne concerne pas toutes les pièces (à identifier précisément).
+    *   **Salle à manger:** Habillage de l'IPN.
+
+**5. POINTS DE VIGILANCE POUR LA VISITE SUR SITE**
+
+*   **Cuisine:**
+    *   Délimiter précisément les zones concernées par la dépose de la "pose collée".
+    *   Évaluer l'état du support après dépose pour préconiser une préparation adaptée.
+*   **Salle à manger (IPN):**
+    *   Identifier la nature du mur concerné (porteur/non porteur).
+    *   Estimer les dimensions souhaitées pour l'ouverture.
+    *   Évaluer l'accès et les contraintes de mise en œuvre de l'IPN.
+*   **Plafonds (Faux-plafonds):**
+    *   Confirmer les pièces où les faux-plafonds seront installés et celles qui ne le seront pas.
+    *   Estimer la hauteur disponible sous les plafonds existants et la hauteur sous faux-plafond souhaitée par le client.
+    *   Vérifier l'état des plafonds actuels.
+*   **Électricité:**
+    *   Préciser l'ampleur de la modernisation souhaitée (nombre de points lumineux, prises, tableau électrique, etc.).
+    *   Identifier les besoins spécifiques en passage de gaines dans les zones sans faux-plafonds.
+*   **Général:**
+    *   Prendre les dimensions précises de chaque pièce concernée.
+    *   Vérifier la présence et l'état des arrivées et évacuations existantes (cuisine).
+    *   Discuter des finitions souhaitées par le client (peinture, revêtements, etc.).
+---

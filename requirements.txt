@@ -1,0 +1,15 @@
+<<<<<<< HEAD
+streamlit
+crewai
+python-docx
+=======
+streamlit
+crewai
+pydantic
+python-docx
+setuptools
+google-generativeai
+google-genai
+google-auth
+google-api-python-client
+>>>>>>> 9c27fc9fd288468608231c0fe5aa74101f4c21d7
