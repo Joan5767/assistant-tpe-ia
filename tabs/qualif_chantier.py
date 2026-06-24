@@ -1,6 +1,5 @@
 import streamlit as st
-import os
-import uuid
+import tempfile
 from crewai import Agent, Task, Crew
 from generer_fiche import completer_fiche_word
 from outils_calendrier import creer_evenement_calendar
@@ -43,31 +42,40 @@ def afficher_onglet_qualification():
                     description=f"""Analyse ces notes d'appel et crée une fiche client structurée :
                     {notes_brutes}
                     Consignes : Sépare par lots (Électricité, Plâtrerie, Démolition...), indique l'adresse, le nom, et ajoute des points de vigilance pour la visite.
-                    
                     IMPORTANT : Si tu détectes une date et une heure de rendez-vous (visite de chantier, rappel...) dans les notes, utilise IMPÉRATIVEMENT ton outil pour créer automatiquement le rendez-vous dans l'agenda.""",
                     expected_output="Une fiche de qualification claire et professionnelle, ainsi qu'un message confirmant si le rendez-vous a bien été ajouté à l'agenda.",
                     agent=expert_batiment
                 )
                 
                 crew = Crew(agents=[expert_batiment], tasks=[analyse_notes], verbose=False)
-                compte_rendu = crew.kickoff()
                 
-                # Génération du fichier Word avec un nom unique pour éviter les collisions
-                id_unique = uuid.uuid4().hex[:6]
-                nom_fichier_word = f"Fiche_Chantier_{id_unique}.docx"
-                completer_fiche_word(str(compte_rendu), nom_fichier=nom_fichier_word)
-                
-                # Lecture du fichier en mémoire vive
-                with open(nom_fichier_word, "rb") as file:
-                    docx_bytes = file.read()
+                # ==========================================
+                # 🛡️ BLOC DE SÉCURITÉ TRY / EXCEPT
+                # ==========================================
+                try:
+                    compte_rendu = crew.kickoff()
                     
-                # --- AJOUT : Enregistrement dans le Session State ---
-                st.session_state.fiche_text = str(compte_rendu)
-                st.session_state.fiche_bytes = docx_bytes
-                st.session_state.fiche_name = nom_fichier_word
-                
-                # Nettoyage immédiat : suppression du fichier physique du serveur
-                os.remove(nom_fichier_word)
+                    # --- GÉNÉRATION SÉCURISÉE AVEC TEMPFILE ---
+                    with tempfile.NamedTemporaryFile(delete=True, suffix=".docx") as tmp_file:
+                        completer_fiche_word(str(compte_rendu), tmp_file.name)
+                        
+                        # On rembobine pour lire le fichier depuis le début
+                        tmp_file.seek(0)
+                        docx_bytes = tmp_file.read()
+                        
+                    # --- Enregistrement dans le Session State ---
+                    st.session_state.fiche_text = str(compte_rendu)
+                    st.session_state.fiche_bytes = docx_bytes
+                    st.session_state.fiche_name = "Fiche_Chantier_Qualifiee.docx"
+                    
+                except Exception as e:
+                    # Message propre pour l'utilisateur
+                    st.error("❌ Une erreur s'est produite lors de l'analyse. L'API est peut-être surchargée, réessayez dans quelques instants.")
+                    
+                    # Menu déroulant technique pour toi
+                    with st.expander("🛠️ Afficher les détails techniques (Pour le débogage)"):
+                        st.error(f"Type d'erreur : {type(e).__name__}")
+                        st.code(str(e), language="python")
 
     # =====================================================================
     # 👉 AFFICHAGE PERSISTANT (Onglet 1 - Qualification)

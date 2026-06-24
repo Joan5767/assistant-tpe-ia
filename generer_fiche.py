@@ -3,7 +3,11 @@ from docx import Document
 from docx.shared import Pt, RGBColor
 from docx.enum.text import WD_ALIGN_PARAGRAPH
 
-def completer_fiche_word(texte_ia, nom_fichier="Fiche_Chantier_Wagner.docx"):
+def completer_fiche_word(texte_ia, destination):
+    """
+    Génère la structure de la fiche client Word.
+    'destination' peut être un chemin vers un fichier (string) ou un objet fichier temporaire.
+    """
     doc = Document()
     
     # Configuration des marges et du style par défaut
@@ -53,7 +57,6 @@ def completer_fiche_word(texte_ia, nom_fichier="Fiche_Chantier_Wagner.docx"):
             
         # Si c'est une ligne de détails ou une puce
         else:
-            # On détecte si c'est une sous-puce ou une info de type "Clé : Valeur"
             if ":" in ligne_propre:
                 p = doc.add_paragraph(style='Normal')
                 cle, valeur = ligne_propre.split(":", 1)
@@ -63,6 +66,5 @@ def completer_fiche_word(texte_ia, nom_fichier="Fiche_Chantier_Wagner.docx"):
             else:
                 doc.add_paragraph(ligne_propre, style='List Bullet')
 
-    # Sauvegarde du fichier
-    doc.save(nom_fichier)
-    print(f"🎉 Le fichier Word a été généré avec succès : '{nom_fichier}'")
+    # Sauvegarde dans la destination (chemin ou fichier temporaire)
+    doc.save(destination)
